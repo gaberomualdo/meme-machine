@@ -1,0 +1,31 @@
+{
+  "name": "MemeMachine",
+  "version": "1.0",
+  "description": "Make memes with photos from any website!",
+  "manifest_version": 2,
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "*://*/*"
+  ],
+  "background": {
+    "scripts": ["script.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "css": ["modal.css"],
+      "js": ["contentscript.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png",
+    "512": "icon512.png"
+  },
+  "browser_action": {
+    "default_icon": "icon128.png"
+  }
+}
