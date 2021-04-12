@@ -61,26 +61,15 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
     context.textAlign = 'center';
     context.fillStyle = '#fff';
     context.lineWidth = 2;
-    context.fillText(
-      document.querySelector('div#MemeMachineChromeExtensionModal div.content div.row div.inputs input:first-child').value,
-      canvas.width / 2,
-      topOffset + remToPx(3)
-    );
-    context.strokeText(
-      document.querySelector('div#MemeMachineChromeExtensionModal div.content div.row div.inputs input:first-child').value,
-      canvas.width / 2,
-      topOffset + remToPx(3)
-    );
-    context.fillText(
-      document.querySelector('div#MemeMachineChromeExtensionModal div.content div.row div.inputs input:last-child').value,
-      canvas.width / 2,
-      canvas.height - topOffset - remToPx(1)
-    );
-    context.strokeText(
-      document.querySelector('div#MemeMachineChromeExtensionModal div.content div.row div.inputs input:last-child').value,
-      canvas.width / 2,
-      canvas.height - topOffset - remToPx(1)
-    );
+    let topText = document.querySelector('div#MemeMachineChromeExtensionModal div.content div.row div.inputs input:first-child').value;
+    let bottomText = document.querySelector('div#MemeMachineChromeExtensionModal div.content div.row div.inputs input:last-child').value;
+    topText = topText.toUpperCase();
+    bottomText = bottomText.toUpperCase();
+
+    context.fillText(topText, canvas.width / 2, topOffset + remToPx(3));
+    context.strokeText(topText, canvas.width / 2, topOffset + remToPx(3));
+    context.fillText(bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(1));
+    context.strokeText(bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(1));
   }
 
   document.querySelector('div#MemeMachineChromeExtensionModal div.content div.row div.inputs input:first-child').oninput = updateText;

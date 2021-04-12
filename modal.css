@@ -114,6 +114,7 @@ div#MemeMachineChromeExtensionModal div.content > button:hover {
 }
 
 div#MemeMachineChromeExtensionModal div.content input {
+  text-transform: uppercase;
   color: #222;
   height: 2.5rem;
   border: 1px solid #22222244;
