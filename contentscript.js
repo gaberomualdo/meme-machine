@@ -12,6 +12,10 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
       <button type="button">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z"/></svg>
       </button>
+      <div class="meta">
+        <h1>MemeMachine</h1>
+        <p>design your meme from the image</p>
+      </div>
       <canvas></canvas>
       <div class="row">
         <div class="inputs">
@@ -30,19 +34,11 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
   var canvas = document.querySelector('div#MemeMachineChromeExtensionModal div.content canvas');
   var context = canvas.getContext('2d');
 
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
-
   function drawMemeImage() {
-    var width = image.width * (canvas.height / image.height);
-    if (width > canvas.height) {
-      var height = image.height * (canvas.width / image.width);
-      context.drawImage(image, 0, (canvas.height - height) / 2, canvas.width, height);
-      topOffset = (canvas.height - height) / 2;
-    } else {
-      context.drawImage(image, (canvas.width - width) / 2, 0, width, canvas.height);
-      topOffset = 0;
-    }
+    canvas.width = image.width;
+    canvas.height = image.height;
+    context.drawImage(image, 0, 0, canvas.width, canvas.height);
+    topOffset = 0;
   }
   function clearCanvas() {
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -57,7 +53,8 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
   function updateText() {
     clearCanvas();
     drawMemeImage();
-    context.font = '2.625rem Impact';
+    const fontSize = 42 * (canvas.width / 450);
+    context.font = `${fontSize}px Impact`;
     context.textAlign = 'center';
     context.fillStyle = '#fff';
     context.lineWidth = 2;
@@ -66,10 +63,10 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
     topText = topText.toUpperCase();
     bottomText = bottomText.toUpperCase();
 
-    context.fillText(topText, canvas.width / 2, topOffset + remToPx(3));
-    context.strokeText(topText, canvas.width / 2, topOffset + remToPx(3));
-    context.fillText(bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(1));
-    context.strokeText(bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(1));
+    context.fillText(topText, canvas.width / 2, topOffset + fontSize + remToPx(1));
+    context.strokeText(topText, canvas.width / 2, topOffset + fontSize + remToPx(1));
+    context.fillText(bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(1.5));
+    context.strokeText(bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(1.5));
   }
 
   document.querySelector('div#MemeMachineChromeExtensionModal div.content div.row div.inputs input:first-child').oninput = updateText;
