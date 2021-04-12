@@ -85,12 +85,24 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
     });
   };
 
-  const __closeBtn = document.querySelector('div#MemeMachineChromeExtensionModal div.content > button');
-  __closeBtn.addEventListener('click', () => {
-    const __modal = __closeBtn.parentElement.parentElement;
+  const __modal = document.querySelector('div#MemeMachineChromeExtensionModal');
+
+  const closeModal = () => {
     __modal.classList.add('closed');
     setInterval(() => {
       __modal.outerHTML = '';
     }, 250);
+  };
+
+  const __closeBtn = document.querySelector('div#MemeMachineChromeExtensionModal div.content > button');
+  __closeBtn.addEventListener('click', () => {
+    closeModal();
+  });
+
+  __modal.addEventListener('click', ({ target }) => {
+    if (target === __modal) {
+      // takes advantage of event bubbling and that target references the most specific element
+      closeModal();
+    }
   });
 });

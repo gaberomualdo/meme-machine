@@ -45,7 +45,6 @@ div#MemeMachineChromeExtensionModal {
   left: 0;
   z-index: 9999;
   text-align: center;
-  border-radius: 6px;
   animation-name: MemeMachineChromeExtensionModalOuterEnter;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
@@ -62,6 +61,7 @@ div#MemeMachineChromeExtensionModal {
   font-weight: normal;
 }
 div#MemeMachineChromeExtensionModal div.content {
+  border-radius: 6px;
   width: 600px;
   height: 600px;
   background-color: #fff;
