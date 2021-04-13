@@ -1,63 +1,143 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>MemeMachine: Make memes with photos from any website!</title>
-	<link rel="stylesheet" type="text/css" href="normalize.css">
-	<link rel="stylesheet" type="text/css" href="skeleton.css">
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700">
-	<link rel="shortcut icon" type="text/css" href="icon128.png">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-	<style type="text/css">
-	* {
-		font-family: "Droid Sans";
-	}
-	div.container {
-		padding-top: 5rem;
-		padding-bottom: 5rem;
-	}
-	div.top h1 {
-		margin-bottom: 0.25rem;
-	}
-	div.top p {
-		margin-bottom: 1.25rem;
-		text-align: center;
-		color: #aaa;
-		font-size: 1.625rem;
-	}
-	div.top ul a {
-		display: inline-block;
-		padding: 1rem 1.75rem;
-		font-size: 1.75rem;
-		text-decoration: none;
-		background-color: #29b765;
-		color: white;
-		border-radius: 6px;	
-	}
-	div.top ul a:hover {
-		background-color: #208e4f;
-	}
-	</style>
-	<div class="container">
-		<div class="top">
-			<h1 style="text-align: center;font-weight:700;">MemeMachine</h1>
-			<p>Make memes with photos from any website!</p>
-			<ul style="text-align: center;">
-				<a href="MemeMachine.zip" download="MemeMachine.zip">Download (.zip)</a>
-			</ul>
-		</div>
-		<div class="main">
-			<h4 style="font-weight: 700;">Download Instructions</h4>
-			<p>1. Click download button and get the <code>MemeMachine.zip</code> file.</p>
-			<p>2. Unzip the <code>MemeMachine.zip</code> file &mdash; it should be in your downloads folder.</p>
-			<p>3. Move the <code>MemeMachine</code> folder (located in the Downloads folder) to a directory where you will likely not move it or delete it &mdash; e.g. the Documents folder.</p>
-			<p>4. Open Google Chrome and click on the menu (3 dots stacked) icon in the top right corner, then click on <strong>More Tools > Extensions</strong>.</p>
-			<p>5. Turn on <strong>Developer Mode</strong> on the top right corner by sliding the slider right, or clicking on the slider.</p>
-			<p>6. Go to the top left hand corner and click the <strong>Load Unpacked</strong> button, then open the <code>MemeMachine</code> folder.</p>
-			
-		</div>
-	</div>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MemeMachine – Meme Creation in the Browser, With Any Photo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="main.css" />
+
+    <link rel="shortcut icon" href="icon.png" />
+    <!-- Not too much of a problem, but I should probably add apple/android/microsoft icons here, as well as a manifest.json link and other relevant meta tags -->
+
+    <script src="https://kit.fontawesome.com/5ebdf346fa.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="home"></div>
+      <nav class="padded">
+        <a class="logo" href="#home">
+          <img src="icon.png" alt="MemeMachine" />
+          <span>MemeMachine</span>
+        </a>
+        <div class="links">
+          <a href="#download"><i class="fas fa-download"></i> Download</a>
+          <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+          <!-- <a href="https://github.com/xtrp/MemeMachine/">Code on GitHub</a> -->
+        </div>
+      </nav>
+      <main>
+        <section class="padded" id="top">
+          <!-- jumbotron -->
+          <div class="left">
+            <h1 class="animate__animated animate__fadeIn">
+              Create, edit, and share memes <strong>in the browser</strong> by <strong>right clicking</strong> on an image.
+            </h1>
+            <p class="animate__animated animate__fadeIn">
+              MemeMachine is a Chrome Extension that allows you to right click on images on a webpage and design memes from them.
+            </p>
+            <div class="btns animate__animated animate__fadeIn">
+              <a class="btn primary" href="#download"><i class="fas fa-download"></i> Download</a>
+              <a class="btn" href="#about"><i class="fas fa-info-circle"></i> Learn More</a>
+            </div>
+          </div>
+          <div class="right with-links">
+            <div class="image animate__animated animate__zoomIn animate__fadeIn">
+              <img src="demo.png" alt="Demo" />
+            </div>
+          </div>
+        </section>
+        <section class="padded" id="features">
+          <!-- features -->
+          <h1>Features</h1>
+          <div class="list">
+            <div>
+              <img src="icons/easy.svg" alt="Simple & Easy To Use" />
+              <h1>Simple & Easy To Use</h1>
+              <p>
+                MemeMachine is extremely simple to use &mdash; just right click on the image and select 'Make Meme with MemeMachine' to design your
+                meme. It's that simple.
+              </p>
+            </div>
+            <div>
+              <img src="icons/works.svg" alt="Works Everywhere" />
+              <h1>Works Everywhere</h1>
+              <p>
+                MemeMachine works on any site with pretty much every possible photo. Photos of all sizes and types on the web are supported, so
+                selecting a photo for your meme is easy as ever!
+              </p>
+            </div>
+            <div>
+              <img src="icons/share.svg" alt="Share Memes Instantly" style="transform: scale(-1, 1)" />
+              <h1>Share Memes Instantly</h1>
+              <p>
+                MemeMachine allows you to share memes you've created with the click of the button, by downloading memes as .png files to your machine.
+                From there, share them however you'd like!
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="padded less-vertical-padding" id="download">
+          <!-- download -->
+          <h1>Download</h1>
+          <div class="meta">
+            <p>MemeMachine is a Chrome Extension. Follow instructions to install.</p>
+            <!-- <a class="btn primary" href="#" target="_blank"><i class="fab fa-chrome"></i> Add To Chrome &nbsp;&rarr; </a> -->
+            <a class="btn primary disabled" href="#" target="_blank">Extension Coming Soon</a>
+          </div>
+          <div class="instructions with-links">
+            <div>
+              <div class="number">1</div>
+              <p>Click the button above and add the extension to Chrome through the Chrome Web Store.</p>
+            </div>
+            <div>
+              <div class="number">2</div>
+              <p>Right click on any image on a site you're visiting, and select 'Make Meme With MemeMachine' to use MemeMachine!</p>
+            </div>
+            <div>
+              <div class="number">3</div>
+              <p>Have fun using MemeMachine!</p>
+            </div>
+          </div>
+        </section>
+        <hr />
+        <section class="padded less-vertical-padding with-links" id="about">
+          <!-- about -->
+          <h1>About</h1>
+          <p>
+            MemeMachine is a fun and simple Chrome Extension built by <a href="https://gabrielromualdo.com/" target="_blank">Gabriel Romualdo</a>.
+          </p>
+          <p>
+            In terms of code, it uses two scripts: a content script and a background script, where the content script is used to create the modal and
+            provide the functionality to design the meme, whereas the background script is used to generate the image and download it. Both take
+            advantage of HTML5 canvas and the features that canvas elements provide. Communication between the background and content scripts is vital
+            for the functionality of this extension.
+          </p>
+          <p>
+            The code and the extension itself are licensed under the MIT License. More information can be found in the GitHub repository linked below
+            on this page.
+          </p>
+          <p>
+            I hope you enjoy this extension and find it fun to use! Feel free to contact me with any questions, suggestions, or anything else:
+            <a href="mailto:gabriel@gabrielromualdo.com">gabriel@gabrielromualdo.com</a>.
+          </p>
+          <p><em>&mdash; Gabriel Romualdo, April 2021</em></p>
+        </section>
+        <section class="padded" id="code">
+          <!-- code -->
+          <div class="left"><h1>Want to see the code?</h1></div>
+          <div class="right">
+            <a class="btn" target="_blank" href="https://github.com/xtrp/MemeMachine/"><i class="fab fa-github"></i> See It On GitHub</a>
+          </div>
+        </section>
+      </main>
+      <footer class="padded with-links">
+        <p>MemeMachine is a project by <a href="https://gabrielromualdo.com/" target="_blank">Gabriel Romualdo</a>.</p>
+        <p>&copy; 2021–Present</p>
+        <p>Check out the <a target="_blank" href="https://github.com/xtrp/MemeMachine/">code on GitHub.</a></p>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

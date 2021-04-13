@@ -57,10 +57,14 @@ div#MemeMachineChromeExtensionModal.closed {
 div#MemeMachineChromeExtensionModal.closed div.content {
   animation-name: MemeMachineChromeExtensionModalExit;
 }
+div#MemeMachineChromeExtensionModal {
+  font-size: 16px;
+}
 div#MemeMachineChromeExtensionModal *,
 div#MemeMachineChromeExtensionModal {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif !important;
   font-weight: normal;
+  color: #333;
 }
 div#MemeMachineChromeExtensionModal div.content {
   border-radius: 6px;
@@ -190,6 +194,7 @@ div#MemeMachineChromeExtensionModal .meta h1 {
   margin: 0;
   font-weight: 600;
   font-size: 2rem;
+  text-transform: none;
 }
 div#MemeMachineChromeExtensionModal .meta p {
   margin: 0;

@@ -57,7 +57,7 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
     context.font = `${fontSize}px Impact`;
     context.textAlign = 'center';
     context.fillStyle = '#fff';
-    context.lineWidth = 2;
+    context.lineWidth = 1.7 * (canvas.width / 450);
     let topText = document.querySelector('div#MemeMachineChromeExtensionModal div.content div.row div.inputs input:first-child').value;
     let bottomText = document.querySelector('div#MemeMachineChromeExtensionModal div.content div.row div.inputs input:last-child').value;
     topText = topText.toUpperCase();
@@ -65,8 +65,8 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
 
     context.fillText(topText, canvas.width / 2, topOffset + fontSize + remToPx(1));
     context.strokeText(topText, canvas.width / 2, topOffset + fontSize + remToPx(1));
-    context.fillText(bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(1.5));
-    context.strokeText(bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(1.5));
+    context.fillText(bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(3));
+    context.strokeText(bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(3));
   }
 
   document.querySelector('div#MemeMachineChromeExtensionModal div.content div.row div.inputs input:first-child').oninput = updateText;
