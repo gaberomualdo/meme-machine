@@ -17,6 +17,7 @@ In terms of code, it uses two scripts: a content script and a background script,
 - `src`: source contents of the extension
 - `bin`: contents of the extension to upload to the Chrome Developer dashboard for publishing
 - `docs`: source of the MemeMachine website
+- `build.sh`: builds the extension from `src/` as a `.zip` file and uploads it to `bin`
 
 ## License
 
