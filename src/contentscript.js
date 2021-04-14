@@ -87,7 +87,9 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
   const closeModal = () => {
     __modal.classList.add('closed');
     setInterval(() => {
-      __modal.outerHTML = '';
+      if(__modal.parentElement) {
+        __modal.parentElement.removeChild(__modal);
+      }
     }, 250);
   };
 

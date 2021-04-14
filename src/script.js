@@ -19,16 +19,12 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
   canvas.width = request.width;
   canvas.height = request.height;
 
+  var topOffset = 0;
+
   function drawMemeImage() {
-    var width = image.width * (canvas.height / image.height);
-    if (width > canvas.height) {
-      var height = image.height * (canvas.width / image.width);
-      context.drawImage(image, 0, (canvas.height - height) / 2, canvas.width, height);
-      topOffset = (canvas.height - height) / 2;
-    } else {
-      context.drawImage(image, (canvas.width - width) / 2, 0, width, canvas.height);
-      topOffset = 0;
-    }
+    canvas.width = image.width;
+    canvas.height = image.height;
+    context.drawImage(image, 0, 0, canvas.width, canvas.height);
   }
   function remToPx(rem) {
     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
@@ -45,14 +41,18 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
 
   function loaded() {
     drawMemeImage();
-    context.font = '2.625rem Impact';
+    const fontSize = 42 * (canvas.width / 450);
+    context.font = `${fontSize}px Impact`;
     context.textAlign = 'center';
     context.fillStyle = '#fff';
-    context.lineWidth = 2;
-    context.fillText(request.topText, canvas.width / 2, topOffset + remToPx(3));
-    context.strokeText(request.topText, canvas.width / 2, topOffset + remToPx(3));
-    context.fillText(request.bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(1));
-    context.strokeText(request.bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(1));
+    context.lineWidth = 1.7 * (canvas.width / 450);
+    topText = request.topText.toUpperCase();
+    bottomText = request.bottomText.toUpperCase();
+
+    context.fillText(topText, canvas.width / 2, topOffset + fontSize + remToPx(1));
+    context.strokeText(topText, canvas.width / 2, topOffset + fontSize + remToPx(1));
+    context.fillText(bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(3));
+    context.strokeText(bottomText, canvas.width / 2, canvas.height - topOffset - remToPx(3));
     downloadURI(canvas.toDataURL(), 'meme.png');
   }
 
